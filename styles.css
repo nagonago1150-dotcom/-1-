@@ -459,16 +459,24 @@ body::after {
 
 .product-image {
     flex: 1;
-    min-width: 250px;
+    min-width: 280px;
+    max-width: 350px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .product-image img {
-    max-width: 100%;
+    width: 100%;
+    max-width: 320px;
     height: auto;
+    object-fit: contain;
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease;
+    background: white;
+    padding: 10px;
 }
 
 .product-image img:hover {
@@ -534,12 +542,25 @@ body::after {
 }
 
 .discount-rate {
-    background: #ff6b6b;
+    background: #dc2626;
     color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+    border-radius: 18px;
+    font-size: 0.9rem;
     font-weight: bold;
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+    animation: discountPulse 2s ease-in-out infinite;
+}
+
+@keyframes discountPulse {
+    0%, 100% { 
+        box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.5);
+        transform: scale(1.02);
+    }
 }
 
 .benefits-grid {
