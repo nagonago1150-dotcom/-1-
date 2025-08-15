@@ -1,0 +1,376 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    padding: 2rem 0;
+}
+
+.logo {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.main {
+    margin-top: 2rem;
+}
+
+.intro-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.chat-bubble {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.chat-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: white;
+}
+
+.bot-message .message-content h2 {
+    color: #667eea;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.bot-message .message-content p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.start-button {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.start-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+.survey-section {
+    margin-bottom: 2rem;
+}
+
+.question-container {
+    text-align: center;
+}
+
+.question-text {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.question-text::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: white;
+}
+
+.question-text h3 {
+    color: #667eea;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.question-options {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.option-btn {
+    background: white;
+    border: 2px solid #667eea;
+    color: #667eea;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.option-btn:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.result-section {
+    margin-bottom: 2rem;
+}
+
+.product-info {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.product-image {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product-details {
+    flex: 2;
+    min-width: 300px;
+}
+
+.product-details h3 {
+    color: #667eea;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.price-info {
+    margin-bottom: 1.5rem;
+}
+
+.special-price {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.price-label {
+    background: #ff6b6b;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff6b6b;
+}
+
+.tax {
+    color: #666;
+    font-size: 1rem;
+}
+
+.regular-price {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.discount {
+    color: #667eea;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.benefits ul {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.benefits li {
+    color: #555;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.authority {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.doctor-recommend, .ranking {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f0f7ff;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    color: #667eea;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.cta-section {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.cta-button {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 1.5rem 3rem;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+.cta-note {
+    color: white;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    opacity: 0.8;
+}
+
+.footer {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 2rem 0;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .logo {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .chat-bubble {
+        padding: 1.5rem;
+    }
+    
+    .bot-message .message-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .product-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .product-image, .product-details {
+        min-width: auto;
+        flex: none;
+    }
+    
+    .authority {
+        justify-content: center;
+    }
+    
+    .question-options {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .option-btn {
+        width: 200px;
+    }
+}

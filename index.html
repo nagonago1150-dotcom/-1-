@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KALCALA - あなたにぴったりの商品を見つけよう</title>
+    <meta name="description" content="簡単な質問に答えて、あなたのむくみ・脂肪のお悩みに最適なKALCALAの効果を発見してください。">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">KALCALA</h1>
+            <p class="subtitle">あなたの理想のボディを叶える</p>
+        </header>
+
+        <main class="main">
+            <div class="intro-section" id="intro">
+                <div class="chat-bubble bot-message">
+                    <div class="message-content">
+                        <h2>あなたのむくみ・脂肪のお悩みは？</h2>
+                        <p>簡単な質問に答えて、あなたにぴったりの商品を見つけましょう！</p>
+                    </div>
+                </div>
+                <button class="start-button" onclick="startSurvey()">アンケートを始める</button>
+            </div>
+
+            <div class="survey-section" id="survey" style="display: none;">
+                <div class="question-container" id="question-container">
+                </div>
+            </div>
+
+            <div class="result-section" id="result" style="display: none;">
+                <div class="chat-bubble bot-message">
+                    <div class="result-content" id="result-content">
+                    </div>
+                </div>
+
+                <div class="product-info">
+                    <div class="product-image">
+                        <img src="kalcala-package.jpg" alt="KALCALA商品" id="product-img">
+                    </div>
+                    <div class="product-details">
+                        <h3>KALCALA</h3>
+                        <div class="price-info">
+                            <div class="special-price">
+                                <span class="price-label">初回定期価格</span>
+                                <span class="price">1,980円</span>
+                                <span class="tax">(税込)</span>
+                            </div>
+                            <div class="regular-price">通常価格 4,980円</div>
+                            <div class="discount">2回目以降も20%OFF</div>
+                        </div>
+                        <div class="benefits">
+                            <ul>
+                                <li>✓ 送料無料</li>
+                                <li>✓ 全額返金保証</li>
+                                <li>✓ 休止・解約いつでもOK</li>
+                            </ul>
+                        </div>
+                        <div class="authority">
+                            <div class="doctor-recommend">
+                                <span>医師推奨</span>
+                            </div>
+                            <div class="ranking">
+                                <span>ランキング1位</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <button class="cta-button" onclick="goToPurchase()">
+                        今すぐお得に始める！
+                    </button>
+                    <p class="cta-note">※いつでも休止・解約可能です</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 KALCALA. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
