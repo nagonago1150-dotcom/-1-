@@ -453,35 +453,12 @@ body::after {
 .product-main {
     padding: 2.5rem;
     display: flex;
-    gap: 2.5rem;
-    align-items: flex-start;
-}
-
-.product-image {
-    flex-shrink: 0;
-    width: 350px;
-    text-align: center;
-}
-
-.product-image img {
-    display: block;
-    width: 280px;
-    height: auto;
-    margin: 0 auto;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease;
-    background: white;
-    padding: 15px;
-}
-
-.product-image img:hover {
-    transform: scale(1.05);
+    justify-content: center;
 }
 
 .product-details {
-    flex: 2;
-    min-width: 300px;
+    width: 100%;
+    max-width: 600px;
 }
 
 .price-section {
@@ -749,25 +726,11 @@ body::after {
     }
     
     .product-main {
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
         padding: 2rem 1.5rem;
     }
     
-    .product-image {
-        width: 100%;
-        max-width: 300px;
-    }
-    
-    .product-image img {
-        width: 250px;
+    .product-details {
         max-width: 100%;
-    }
-    
-    .product-image, .product-details {
-        min-width: auto;
-        flex: none;
     }
     
     .benefits-grid {
