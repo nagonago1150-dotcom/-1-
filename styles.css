@@ -335,6 +335,27 @@ body::after {
     margin-bottom: 2rem;
 }
 
+.result-product-image {
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.result-img {
+    max-width: 280px;
+    width: auto;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background: white;
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.result-img:hover {
+    transform: scale(1.05);
+}
+
 /* 結果メッセージの新しいスタイリング */
 .result-summary {
     margin-top: 1.5rem;
@@ -595,9 +616,41 @@ body::after {
     transform: translateY(-1px);
 }
 
+.doctor-section {
+    margin: 3rem 0;
+    padding: 2rem 0;
+}
+
+.doctor-recommendation {
+    text-align: center;
+    position: relative;
+    animation: fadeIn 1s ease-out;
+}
+
+.doctor-img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    max-height: 500px;
+    border-radius: 20px;
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.15),
+        0 4px 15px rgba(212, 175, 149, 0.3);
+    transition: transform 0.3s ease;
+    background: white;
+    padding: 10px;
+}
+
+.doctor-img:hover {
+    transform: scale(1.02) translateY(-5px);
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.2),
+        0 8px 25px rgba(212, 175, 149, 0.4);
+}
+
 .cta-section {
     text-align: center;
-    margin: 2rem 0;
+    margin: 3rem 0 2rem 0;
 }
 
 .cta-button {
@@ -731,6 +784,15 @@ body::after {
     
     .product-details {
         max-width: 100%;
+    }
+    
+    .result-img {
+        max-width: 250px;
+    }
+    
+    .doctor-img {
+        max-height: 400px;
+        padding: 8px;
     }
     
     .benefits-grid {
