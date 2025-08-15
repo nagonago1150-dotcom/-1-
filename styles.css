@@ -335,28 +335,144 @@ body::after {
     margin-bottom: 2rem;
 }
 
-.product-info {
-    background: white;
-    border-radius: 20px;
-    padding: 2rem;
-    margin: 2rem 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+/* 結果メッセージの新しいスタイリング */
+.result-summary {
+    margin-top: 1.5rem;
+}
+
+.main-result {
+    background: rgba(212, 175, 149, 0.1);
+    border-left: 4px solid #d4af95;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0 15px 15px 0;
+}
+
+.main-result h4 {
+    color: #2c2c2c;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    font-family: 'Georgia', serif;
+}
+
+.main-result p {
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.disclaimer {
+    font-size: 0.85rem;
+    color: #888;
+    font-style: italic;
+    margin-top: 0.8rem;
+}
+
+.secondary-benefits {
+    margin: 1.5rem 0;
+}
+
+.benefit-point {
+    color: #4a4a4a;
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 149, 0.2);
+}
+
+.trust-points {
+    margin-top: 1.5rem;
+}
+
+.trust-item {
     display: flex;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    border: 1px solid rgba(180, 151, 131, 0.3);
+}
+
+.trust-item strong {
+    color: #2c2c2c;
+    font-size: 1.1rem;
+    font-family: 'Georgia', serif;
+}
+
+.trust-item span {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* 商品ショーケースの新しいデザイン */
+.product-showcase {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 149, 0.3);
+    border-radius: 25px;
+    padding: 0;
+    margin: 2.5rem 0;
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.1),
+        0 4px 15px rgba(212, 175, 149, 0.2);
+    overflow: hidden;
+}
+
+.product-header {
+    background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+.product-header h3 {
+    font-size: 2.2rem;
+    font-weight: 300;
+    font-family: 'Georgia', serif;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.product-subtitle {
+    font-size: 1.1rem;
+    color: #d4af95;
+    font-weight: 300;
+    margin-bottom: 0.3rem;
+}
+
+.product-description {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+}
+
+.product-main {
+    padding: 2.5rem;
+    display: flex;
+    gap: 2.5rem;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 .product-image {
     flex: 1;
-    min-width: 200px;
+    min-width: 250px;
     text-align: center;
 }
 
 .product-image img {
     max-width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.product-image img:hover {
+    transform: scale(1.05);
 }
 
 .product-details {
@@ -364,83 +480,125 @@ body::after {
     min-width: 300px;
 }
 
-.product-details h3 {
-    color: #667eea;
-    font-size: 2rem;
+.price-section {
+    margin-bottom: 2rem;
+}
+
+.price-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #d4af95, #b4978b);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 400;
     margin-bottom: 1rem;
 }
 
-.price-info {
-    margin-bottom: 1.5rem;
+.price-display {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+    margin-bottom: 0.8rem;
 }
 
-.special-price {
+.price-amount {
+    font-size: 3rem;
+    font-weight: 300;
+    color: #2c2c2c;
+    font-family: 'Georgia', serif;
+}
+
+.price-currency {
+    font-size: 1.5rem;
+    color: #2c2c2c;
+    font-weight: 300;
+}
+
+.price-tax {
+    font-size: 1rem;
+    color: #666;
+    font-style: italic;
+}
+
+.price-comparison {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.price-label {
-    background: #ff6b6b;
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.9rem;
-    font-weight: bold;
-}
-
-.price {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #ff6b6b;
-}
-
-.tax {
-    color: #666;
-    font-size: 1rem;
+    gap: 1rem;
 }
 
 .regular-price {
     color: #999;
     text-decoration: line-through;
     font-size: 1rem;
-    margin-bottom: 0.3rem;
 }
 
-.discount {
-    color: #667eea;
+.discount-rate {
+    background: #ff6b6b;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
     font-weight: bold;
-    font-size: 1rem;
 }
 
-.benefits ul {
-    list-style: none;
-    margin-bottom: 1.5rem;
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
-.benefits li {
-    color: #555;
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-}
-
-.authority {
+.benefit-item {
     display: flex;
-    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(212, 175, 149, 0.08);
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 149, 0.2);
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+    background: rgba(212, 175, 149, 0.12);
+    transform: translateY(-2px);
+}
+
+.benefit-title {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.3rem;
+    font-weight: 300;
+}
+
+.benefit-value {
+    font-size: 1rem;
+    color: #2c2c2c;
+    font-weight: 500;
+    font-family: 'Georgia', serif;
+}
+
+.trust-badges {
+    display: flex;
+    gap: 1rem;
     flex-wrap: wrap;
 }
 
-.doctor-recommend, .ranking {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: #f0f7ff;
-    padding: 0.5rem 1rem;
-    border-radius: 15px;
-    color: #667eea;
-    font-weight: bold;
+.badge {
+    background: rgba(44, 44, 44, 0.1);
+    color: #2c2c2c;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
     font-size: 0.9rem;
+    font-weight: 400;
+    border: 1px solid rgba(44, 44, 44, 0.2);
+    transition: all 0.3s ease;
+}
+
+.badge:hover {
+    background: rgba(44, 44, 44, 0.15);
+    transform: translateY(-1px);
 }
 
 .cta-section {
@@ -573,9 +731,10 @@ body::after {
         font-size: 1.5rem;
     }
     
-    .product-info {
+    .product-main {
         flex-direction: column;
-        text-align: center;
+        gap: 2rem;
+        padding: 2rem 1.5rem;
     }
     
     .product-image, .product-details {
@@ -583,7 +742,11 @@ body::after {
         flex: none;
     }
     
-    .authority {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .trust-badges {
         justify-content: center;
     }
     

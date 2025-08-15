@@ -98,38 +98,47 @@ class KalcalaSurvey {
     
     generatePersonalizedMessage() {
         const { main_concern, goal_priority, purchase_priority } = this.answers;
-        let message = '<h3>あなたにぴったりのKALCALAがあります！</h3>';
+        let message = '<h3>診断結果</h3>';
+        message += '<div class="result-summary">';
         
         // メインの悩み別メッセージ
         if (main_concern === 'A') {
-            message += '<p><strong>お腹周りの脂肪</strong>でお悩みのあなたへ。KALCALAに含まれる<strong>ブラックジンジャー由来ポリメトキシフラボン</strong>が、BMIが高めの方のお腹の脂肪を減らすのを助けます。</p>';
-            message += '<p class="note" style="font-size: 0.9rem; color: #666; margin: 0.5rem 0;">※BMI高めの方</p>';
+            message += '<div class="main-result"><h4>お腹周りの脂肪へのアプローチ</h4>';
+            message += '<p>KALCALAに含まれる<strong>ブラックジンジャー由来ポリメトキシフラボン</strong>が、BMIが高めの方のお腹の脂肪を減らすのを助けます。</p>';
+            message += '<p class="disclaimer">※BMI高めの方対象</p></div>';
         } else if (main_concern === 'B') {
-            message += '<p><strong>脚のむくみ</strong>でお悩みのあなたへ。KALCALAの<strong>ヒハツ由来ピペリン</strong>が、夕方の脚のむくみを軽減し、軽やかな足元をサポートします。</p>';
-            message += '<p class="note" style="font-size: 0.9rem; color: #666; margin: 0.5rem 0;">※病的ではない一過性のむくみ</p>';
+            message += '<div class="main-result"><h4>脚のむくみケア</h4>';
+            message += '<p>KALCALAの<strong>ヒハツ由来ピペリン</strong>が、夕方の脚のむくみを軽減し、軽やかな足元をサポートします。</p>';
+            message += '<p class="disclaimer">※病的ではない一過性のむくみ対象</p></div>';
         } else if (main_concern === 'C') {
-            message += '<p><strong>手足の冷え</strong>でお悩みのあなたへ。KALCALAの<strong>ヒハツ由来ピペリン</strong>が、末梢血流量を増加させ、冷えの軽減をサポートします。</p>';
-            message += '<p class="note" style="font-size: 0.9rem; color: #666; margin: 0.5rem 0;">※末梢血流量を増加させ、冷えの軽減に役立つ機能が報告されています</p>';
+            message += '<div class="main-result"><h4>冷えの軽減サポート</h4>';
+            message += '<p>KALCALAの<strong>ヒハツ由来ピペリン</strong>が、末梢血流量を増加させ、冷えの軽減をサポートします。</p>';
+            message += '<p class="disclaimer">※末梢血流量を増加させ、冷えの軽減に役立つ機能が報告されています</p></div>';
         }
         
         // 目標に応じた追加メッセージ
+        message += '<div class="secondary-benefits">';
         if (goal_priority === 'A') {
-            message += '<p>🌟 健康的にスッキリを目指すあなたにピッタリの機能性表示食品です。</p>';
+            message += '<p class="benefit-point">健康的なボディケアを目指す方に適した機能性表示食品です。</p>';
         } else if (goal_priority === 'B') {
-            message += '<p>🌟 一日中軽やかでいたいあなたの願いを叶える成分が配合されています。</p>';
+            message += '<p class="benefit-point">一日中快適に過ごしたい方をサポートする成分が配合されています。</p>';
         } else if (goal_priority === 'C') {
-            message += '<p>🌟 体の内側から温まって、冷えにくい体づくりをサポートします。</p>';
+            message += '<p class="benefit-point">体の内側からのケアで、冷えにくい体づくりをサポートします。</p>';
         }
+        message += '</div>';
         
         // 購入動機に応じたメッセージ
+        message += '<div class="trust-points">';
         if (purchase_priority === 'A') {
-            message += '<p>✅ <strong>機能性表示食品</strong>として消費者庁に届出済み。科学的根拠に基づいた効果が期待できます。</p>';
+            message += '<div class="trust-item"><strong>機能性表示食品</strong><span>消費者庁に届出済み。科学的根拠に基づいた効果が期待できます。</span></div>';
         } else if (purchase_priority === 'B') {
-            message += '<p>✅ <strong>初回1,980円</strong>で始められ、2回目以降も20%OFF。信頼の品質をお得に続けられます。</p>';
+            message += '<div class="trust-item"><strong>初回価格1,980円</strong><span>継続しやすい価格設定で、2回目以降も20%OFFでご利用いただけます。</span></div>';
         } else if (purchase_priority === 'C') {
-            message += '<p>✅ <strong>全額返金保証</strong>付きで安心。休止・解約もいつでも可能です。</p>';
+            message += '<div class="trust-item"><strong>安心保証付き</strong><span>全額返金保証付きで、休止・解約もいつでも可能です。</span></div>';
         }
+        message += '</div>';
         
+        message += '</div>';
         return message;
     }
 }
