@@ -713,6 +713,47 @@ body::after {
     font-weight: 300;
 }
 
+.doctor-recommendation-section {
+    background: linear-gradient(135deg, #f8f6f4 0%, #ede8e4 100%);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin: 2rem 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(212, 175, 149, 0.2);
+}
+
+.doctor-image-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.doctor-recommend-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-message {
+    text-align: center;
+}
+
+.doctor-message h4 {
+    color: #b4978b;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-message p {
+    color: #4a4a4a;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+    font-weight: 300;
+}
+
 .footer {
     text-align: center;
     color: rgba(44, 44, 44, 0.6);
