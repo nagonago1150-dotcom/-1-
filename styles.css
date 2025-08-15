@@ -453,6 +453,55 @@ body::after {
     color: white;
     text-align: center;
     padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-header::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 8%;
+    width: 180px;
+    height: 90%;
+    background: url('black-ginger.jpeg') center/cover no-repeat;
+    opacity: 0.12;
+    border-radius: 15px;
+    transform: rotate(-8deg) scale(0.9);
+    z-index: 1;
+    transition: all 0.6s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.product-header::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: 8%;
+    width: 160px;
+    height: 85%;
+    background: url('piperine.jpeg') center/cover no-repeat;
+    opacity: 0.18;
+    border-radius: 12px;
+    transform: rotate(6deg) scale(0.95);
+    z-index: 1;
+    transition: all 0.6s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.product-header:hover::before {
+    transform: rotate(-6deg) scale(0.95);
+    opacity: 0.18;
+}
+
+.product-header:hover::after {
+    transform: rotate(4deg) scale(1);
+    opacity: 0.25;
+}
+
+.product-header > * {
+    position: relative;
+    z-index: 2;
 }
 
 .product-header h3 {
@@ -856,6 +905,20 @@ body::after {
         flex-direction: column;
         align-items: center;
         gap: 0.8rem;
+    }
+    
+    .product-header::before {
+        left: 5%;
+        width: 120px;
+        height: 80%;
+        transform: rotate(-12deg) scale(0.8);
+    }
+    
+    .product-header::after {
+        right: 5%;
+        width: 100px;
+        height: 75%;
+        transform: rotate(10deg) scale(0.85);
     }
     
     .option-btn {
