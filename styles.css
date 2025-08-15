@@ -458,20 +458,16 @@ body::after {
 }
 
 .product-image {
-    flex: 0 0 auto;
-    width: 300px;
+    flex-shrink: 0;
+    width: 350px;
     text-align: center;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 1rem;
 }
 
 .product-image img {
-    width: auto;
-    max-width: 280px;
+    display: block;
+    width: 280px;
     height: auto;
-    object-fit: contain;
+    margin: 0 auto;
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease;
@@ -761,13 +757,12 @@ body::after {
     
     .product-image {
         width: 100%;
-        max-width: 280px;
-        margin: 0 auto;
+        max-width: 300px;
     }
     
     .product-image img {
-        max-width: 250px;
-        width: auto;
+        width: 250px;
+        max-width: 100%;
     }
     
     .product-image, .product-details {
