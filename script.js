@@ -47,10 +47,17 @@ class KalcalaSurvey {
         const question = this.questions[questionIndex];
         const questionContainer = document.getElementById('question-container');
         
+        // 質問が存在しない場合のエラーハンドリング
+        if (!question) {
+            console.error('質問が見つかりません:', questionIndex);
+            return;
+        }
+        
         let optionsHTML = '';
-        question.options.forEach(option => {
+        question.options.forEach((option, index) => {
             optionsHTML += `
-                <button class="option-btn" onclick="survey.answerQuestion('${option.value}')">
+                <button class="option-btn" onclick="survey.answerQuestion('${option.value}')" 
+                        style="animation-delay: ${index * 0.1}s">
                     <span class="option-label">${option.value}:</span>
                     <span class="option-text">${option.text}</span>
                 </button>
@@ -58,35 +65,74 @@ class KalcalaSurvey {
         });
         
         questionContainer.innerHTML = `
-            <div class="question-text fade-in">
+            <div class="question-text">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: ${((questionIndex + 1) / this.questions.length) * 100}%"></div>
+                </div>
                 <h3>${question.text}</h3>
-                <p>質問 ${questionIndex + 1} / ${this.questions.length}</p>
+                <p class="question-counter">質問 ${questionIndex + 1} / ${this.questions.length}</p>
             </div>
             <div class="question-options">
                 ${optionsHTML}
             </div>
         `;
+        
+        // オプションボタンにフェードインアニメーションを追加
+        setTimeout(() => {
+            const optionButtons = questionContainer.querySelectorAll('.option-btn');
+            optionButtons.forEach((btn, index) => {
+                setTimeout(() => {
+                    btn.classList.add('fade-in-option');
+                }, index * 100);
+            });
+        }, 100);
     }
     
     answerQuestion(answer) {
         const currentQuestion = this.questions[this.currentQuestionIndex];
         this.answers[currentQuestion.key] = answer;
         
-        this.currentQuestionIndex++;
+        // 現在の質問をフェードアウト
+        const questionContainer = document.getElementById('question-container');
+        questionContainer.classList.add('slide-out');
         
-        if (this.currentQuestionIndex < this.questions.length) {
-            setTimeout(() => {
+        setTimeout(() => {
+            this.currentQuestionIndex++;
+            
+            if (this.currentQuestionIndex < this.questions.length) {
                 this.showQuestion(this.currentQuestionIndex);
-            }, 300);
-        } else {
-            setTimeout(() => {
-                this.showResults();
-            }, 300);
-        }
+                questionContainer.classList.remove('slide-out');
+                questionContainer.classList.add('slide-in');
+                
+                setTimeout(() => {
+                    questionContainer.classList.remove('slide-in');
+                }, 500);
+            } else {
+                // 最後の質問に答えた場合、ローディング画面を表示
+                this.showLoading();
+            }
+        }, 300);
+    }
+    
+    showLoading() {
+        // アンケート画面を非表示
+        document.getElementById('survey').style.display = 'none';
+        
+        // ローディング画面を表示
+        const loadingSection = document.getElementById('loading');
+        loadingSection.style.display = 'block';
+        loadingSection.classList.add('fade-in');
+        
+        // 2.5秒後に大正製薬の公式LPに遷移
+        setTimeout(() => {
+            window.location.href = 'https://www.taisho-direct.jp/simages/lp/KTP_con_af.html';
+        }, 2500);
     }
     
     showResults() {
-        document.getElementById('survey').style.display = 'none';
+        // ローディング画面を非表示
+        document.getElementById('loading').style.display = 'none';
+        // 結果画面を表示
         document.getElementById('result').style.display = 'block';
         
         const resultContent = document.getElementById('result-content');

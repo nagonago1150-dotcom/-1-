@@ -821,3 +821,226 @@ body::after {
         min-width: 18px;
     }
 }
+
+/* 質問間アニメーション */
+@keyframes slideOut {
+    0% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50px) scale(0.95);
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(50px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+.slide-out {
+    animation: slideOut 0.3s ease-in-out forwards;
+}
+
+.slide-in {
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+/* 質問コンテナの基本設定 */
+#question-container {
+    transition: all 0.3s ease;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* オプションボタンのホバーアニメーション強化 */
+.option-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.option-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 149, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.option-btn:hover::before {
+    left: 100%;
+}
+
+.option-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 
+        0 10px 25px rgba(212, 175, 149, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* 選択時のアニメーション */
+.option-btn:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+/* プログレスバー */
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(212, 175, 149, 0.2);
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #d4af95, #b69775);
+    border-radius: 2px;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 10px rgba(212, 175, 149, 0.5);
+}
+
+/* 質問カウンター */
+.question-counter {
+    font-size: 0.9rem;
+    color: #8b7355;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+/* オプションボタンのフェードインアニメーション */
+@keyframes fadeInOption {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.fade-in-option {
+    animation: fadeInOption 0.4s ease-out forwards;
+}
+
+/* 初期状態でオプションボタンを非表示 */
+.option-btn {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+}
+
+/* アニメーション後の状態 */
+.fade-in-option {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ローディング画面 */
+.loading-section {
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+        url('botanical-bg.jpeg') center/cover no-repeat fixed;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+}
+
+.loading-container {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.loading-spinner {
+    width: 80px;
+    height: 80px;
+    border: 4px solid rgba(212, 175, 149, 0.2);
+    border-top: 4px solid #d4af95;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 2rem;
+    box-shadow: 0 0 20px rgba(212, 175, 149, 0.3);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1.8rem;
+    color: #8b7355;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.loading-subtitle {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1.1rem;
+    color: #a68b5b;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.loading-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: #d4af95;
+    border-radius: 50%;
+    animation: pulse 1.5s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(212, 175, 149, 0.5);
+}
+
+.dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* ローディング画面のフェードイン */
+.loading-section.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
