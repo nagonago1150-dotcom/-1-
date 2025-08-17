@@ -50,7 +50,7 @@ class KalcalaSurvey {
         let optionsHTML = '';
         question.options.forEach(option => {
             optionsHTML += `
-                <button class="option-btn" onclick="survey.answerQuestion('${option.value}')">
+                <button class="option-btn" onclick="survey.answerQuestion('${option.value}', this)">
                     <span class="option-label">${option.value}:</span>
                     <span class="option-text">${option.text}</span>
                 </button>
@@ -68,7 +68,17 @@ class KalcalaSurvey {
         `;
     }
     
-    answerQuestion(answer) {
+    answerQuestion(answer, buttonElement) {
+        // クリックエフェクトを追加
+        if (buttonElement) {
+            buttonElement.classList.add('clicked');
+            
+            // 振動エフェクト (モバイル対応)
+            if (navigator.vibrate) {
+                navigator.vibrate(50);
+            }
+        }
+        
         const currentQuestion = this.questions[this.currentQuestionIndex];
         this.answers[currentQuestion.key] = answer;
         
@@ -77,11 +87,11 @@ class KalcalaSurvey {
         if (this.currentQuestionIndex < this.questions.length) {
             setTimeout(() => {
                 this.showQuestion(this.currentQuestionIndex);
-            }, 300);
+            }, 600); // エフェクト時間を考慮して少し長く
         } else {
             setTimeout(() => {
                 this.showResults();
-            }, 300);
+            }, 600);
         }
     }
     
