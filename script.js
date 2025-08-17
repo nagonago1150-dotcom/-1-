@@ -145,18 +145,11 @@ class KalcalaSurvey {
 
 let survey;
 
-function startSurvey() {
-    document.getElementById('intro').style.display = 'none';
-    document.getElementById('survey').style.display = 'block';
-    
-    survey = new KalcalaSurvey();
-    survey.showQuestion(0);
-}
-
 function goToPurchase() {
     alert('購入ページに遷移します（実際の実装では購入フォームページに遷移）');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    
+    survey = new KalcalaSurvey();
+    survey.showQuestion(0);
 });
