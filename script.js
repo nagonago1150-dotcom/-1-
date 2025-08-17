@@ -87,67 +87,17 @@ class KalcalaSurvey {
     
     showResults() {
         document.getElementById('survey').style.display = 'none';
-        document.getElementById('result').style.display = 'block';
+        document.getElementById('loading').style.display = 'block';
         
-        const resultContent = document.getElementById('result-content');
-        const personalizedMessage = this.generatePersonalizedMessage();
-        
-        resultContent.innerHTML = personalizedMessage;
-        resultContent.parentElement.classList.add('fade-in');
-    }
-    
-    generatePersonalizedMessage() {
-        const { main_concern, goal_priority, purchase_priority } = this.answers;
-        let message = '<h3>診断結果</h3>';
-        message += '<div class="result-summary">';
-        
-        // メインの悩み別メッセージ
-        if (main_concern === 'A') {
-            message += '<div class="main-result"><h4>お腹周りの脂肪へのアプローチ</h4>';
-            message += '<p>KALCALAに含まれる<strong>ブラックジンジャー由来ポリメトキシフラボン</strong>が、BMIが高めの方のお腹の脂肪を減らすのを助けます。</p>';
-            message += '<p class="disclaimer">※BMI高めの方対象</p></div>';
-        } else if (main_concern === 'B') {
-            message += '<div class="main-result"><h4>脚のむくみケア</h4>';
-            message += '<p>KALCALAの<strong>ヒハツ由来ピペリン</strong>が、夕方の脚のむくみを軽減し、軽やかな足元をサポートします。</p>';
-            message += '<p class="disclaimer">※病的ではない一過性のむくみ対象</p></div>';
-        } else if (main_concern === 'C') {
-            message += '<div class="main-result"><h4>冷えの軽減サポート</h4>';
-            message += '<p>KALCALAの<strong>ヒハツ由来ピペリン</strong>が、末梢血流量を増加させ、冷えの軽減をサポートします。</p>';
-            message += '<p class="disclaimer">※末梢血流量を増加させ、冷えの軽減に役立つ機能が報告されています</p></div>';
-        }
-        
-        // 目標に応じた追加メッセージ
-        message += '<div class="secondary-benefits">';
-        if (goal_priority === 'A') {
-            message += '<p class="benefit-point">健康的なボディケアを目指す方に適した機能性表示食品です。</p>';
-        } else if (goal_priority === 'B') {
-            message += '<p class="benefit-point">一日中快適に過ごしたい方をサポートする成分が配合されています。</p>';
-        } else if (goal_priority === 'C') {
-            message += '<p class="benefit-point">体の内側からのケアで、冷えにくい体づくりをサポートします。</p>';
-        }
-        message += '</div>';
-        
-        // 購入動機に応じたメッセージ
-        message += '<div class="trust-points">';
-        if (purchase_priority === 'A') {
-            message += '<div class="trust-item"><strong>機能性表示食品</strong><span>消費者庁に届出済み。科学的根拠に基づいた効果が期待できます。</span></div>';
-        } else if (purchase_priority === 'B') {
-            message += '<div class="trust-item"><strong>初回価格1,980円</strong><span>継続しやすい価格設定で、2回目以降も20%OFFでご利用いただけます。</span></div>';
-        } else if (purchase_priority === 'C') {
-            message += '<div class="trust-item"><strong>安心保証付き</strong><span>全額返金保証付きで、休止・解約もいつでも可能です。</span></div>';
-        }
-        message += '</div>';
-        
-        message += '</div>';
-        return message;
+        // 2秒後に外部LPに遷移
+        setTimeout(() => {
+            window.location.href = 'https://shop.sain-clarte.com/kalcala/15_nensyo2_mu_ka.lp_ishi/sp.html';
+        }, 2000);
     }
 }
 
 let survey;
 
-function goToPurchase() {
-    alert('購入ページに遷移します（実際の実装では購入フォームページに遷移）');
-}
 
 document.addEventListener('DOMContentLoaded', function() {
     survey = new KalcalaSurvey();
