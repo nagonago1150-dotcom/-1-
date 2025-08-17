@@ -102,6 +102,34 @@ body::after {
     opacity: 0.8;
 }
 
+.hero-image-section {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 0 1rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.hero-image {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    max-height: 500px;
+    border-radius: 20px;
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.15),
+        0 4px 15px rgba(212, 175, 149, 0.3);
+    transition: transform 0.3s ease;
+    background: white;
+    padding: 10px;
+}
+
+.hero-image:hover {
+    transform: scale(1.02) translateY(-5px);
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.2),
+        0 8px 25px rgba(212, 175, 149, 0.4);
+}
+
 .main {
     margin-top: 2rem;
 }
@@ -931,5 +959,15 @@ body::after {
     .option-label {
         font-size: 1rem;
         min-width: 18px;
+    }
+    
+    .hero-image-section {
+        margin: 1rem 0;
+        padding: 0 0.5rem;
+    }
+    
+    .hero-image {
+        max-height: 300px;
+        padding: 8px;
     }
 }
