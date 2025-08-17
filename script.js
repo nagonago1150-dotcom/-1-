@@ -77,6 +77,9 @@ class KalcalaSurvey {
             </div>
         `;
         
+        // コンテナにフェードインアニメーションを追加
+        questionContainer.classList.add('fade-in');
+        
         // オプションボタンにフェードインアニメーションを追加
         setTimeout(() => {
             const optionButtons = questionContainer.querySelectorAll('.option-btn');
@@ -95,18 +98,15 @@ class KalcalaSurvey {
         // 現在の質問をフェードアウト
         const questionContainer = document.getElementById('question-container');
         questionContainer.classList.add('slide-out');
+        questionContainer.classList.remove('fade-in');
         
         setTimeout(() => {
             this.currentQuestionIndex++;
             
             if (this.currentQuestionIndex < this.questions.length) {
-                this.showQuestion(this.currentQuestionIndex);
+                // 次の質問を表示
                 questionContainer.classList.remove('slide-out');
-                questionContainer.classList.add('slide-in');
-                
-                setTimeout(() => {
-                    questionContainer.classList.remove('slide-in');
-                }, 500);
+                this.showQuestion(this.currentQuestionIndex);
             } else {
                 // 最後の質問に答えた場合、ローディング画面を表示
                 this.showLoading();
@@ -123,10 +123,21 @@ class KalcalaSurvey {
         loadingSection.style.display = 'block';
         loadingSection.classList.add('fade-in');
         
-        // 2.5秒後に大正製薬の公式LPに遷移
+        // ローディングメッセージを更新
+        const loadingTitle = document.querySelector('.loading-title');
+        const loadingSubtitle = document.querySelector('.loading-subtitle');
+        
+        if (loadingTitle) {
+            loadingTitle.textContent = 'あなたに最適なものを用意しています';
+        }
+        if (loadingSubtitle) {
+            loadingSubtitle.textContent = '素敵な商品ページへご案内します...';
+        }
+        
+        // 3秒後に大正製薬の公式LPに遷移
         setTimeout(() => {
             window.location.href = 'https://www.taisho-direct.jp/simages/lp/KTP_con_af.html';
-        }, 2500);
+        }, 3000);
     }
     
     showResults() {
