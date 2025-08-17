@@ -30,6 +30,16 @@ class KalcalaSurvey {
                     { value: 'B', text: '継続しやすい価格と信頼できる製薬会社が作っていること' },
                     { value: 'C', text: '全額返金保証などのサポート体制が充実していること' }
                 ]
+            },
+            {
+                id: 'q4',
+                text: '健康やボディケアに対するあなたの取り組み方は？',
+                key: 'lifestyle',
+                options: [
+                    { value: 'A', text: '毎日コツコツ続けられる手軽なケアを重視する' },
+                    { value: 'B', text: '効果が実感できるまでしっかりと継続したい' },
+                    { value: 'C', text: '自分のペースで無理なく健康習慣を身につけたい' }
+                ]
             }
         ];
         
@@ -95,23 +105,27 @@ class KalcalaSurvey {
         const currentQuestion = this.questions[this.currentQuestionIndex];
         this.answers[currentQuestion.key] = answer;
         
-        // 現在の質問をフェードアウト
-        const questionContainer = document.getElementById('question-container');
-        questionContainer.classList.add('slide-out');
-        questionContainer.classList.remove('fade-in');
+        // 画面全体をフェードアウト
+        const surveySection = document.getElementById('survey');
+        surveySection.classList.add('page-transition-out');
         
         setTimeout(() => {
             this.currentQuestionIndex++;
             
             if (this.currentQuestionIndex < this.questions.length) {
-                // 次の質問を表示
-                questionContainer.classList.remove('slide-out');
+                // 次の質問を表示（画面が切り替わる感覚）
+                surveySection.classList.remove('page-transition-out');
+                surveySection.classList.add('page-transition-in');
                 this.showQuestion(this.currentQuestionIndex);
+                
+                setTimeout(() => {
+                    surveySection.classList.remove('page-transition-in');
+                }, 500);
             } else {
                 // 最後の質問に答えた場合、ローディング画面を表示
                 this.showLoading();
             }
-        }, 300);
+        }, 400);
     }
     
     showLoading() {

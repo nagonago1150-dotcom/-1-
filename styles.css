@@ -1044,3 +1044,34 @@ body::after {
 .loading-section.fade-in {
     animation: fadeIn 0.5s ease-out forwards;
 }
+
+/* 画面切り替えアニメーション */
+.page-transition-out {
+    animation: pageTransitionOut 0.4s ease-in-out forwards;
+}
+
+.page-transition-in {
+    animation: pageTransitionIn 0.5s ease-out forwards;
+}
+
+@keyframes pageTransitionOut {
+    0% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-30px) scale(0.95);
+    }
+}
+
+@keyframes pageTransitionIn {
+    0% {
+        opacity: 0;
+        transform: translateX(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
